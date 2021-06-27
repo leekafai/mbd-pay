@@ -75,7 +75,6 @@ class Mbdpay {
       let dataFiltered: { [key: string]: string | number } = {}
       let hasData = 0
       Object.keys(data).filter((key) => {
-        console.log(key, data[key])
         return (data[key] !== null && data[key] !== undefined)
       }).forEach((key) => {
         dataFiltered[key] = data[key]
@@ -151,7 +150,6 @@ class Mbdpay {
       out_trade_no: outTradeNo,
       callback_url
     }
-    console.log(data, 'data')
     const sign = this.sign(data)
     if (!sign) throw new Error('签名错误')
     return aliPay(Object.assign(data, { sign }))

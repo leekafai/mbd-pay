@@ -38,7 +38,7 @@ const wechatH5 = async () => {
   const r = await mbdPay.wechatH5({
     description: "test", amount_total: 1
   })
-  console.log(r, 'query')
+  console.log(r, 'wechatH5')
 }
 
 const wechatJSAPI = async () => {
@@ -47,7 +47,7 @@ const wechatJSAPI = async () => {
     callback_url: "https://somewhere.com",
     description: "test", amount_total: 1
   })
-  console.log(r, 'query')
+  console.log(r, 'wechatJSAPI')
 }
 
 ```

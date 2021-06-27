@@ -10,13 +10,13 @@ console.log(mbdPay.app_key)
 
 const aliPay = async () => {
   const r = await mbdPay.alipay({
-    url: 'http://baidu.com', description: 'test', amount_total: 1
+    url: 'http://somewhere.com', description: 'test', amount_total: 1
   })
   console.log(r, 'alipay')
 }
 const query = async () => {
   const r = await mbdPay.query({
-    out_trade_no: '8934d0a0e529db150c89de1dab24635b'
+    out_trade_no: 'xxx'
   })
   console.log(r, 'query')
 }
@@ -30,8 +30,8 @@ const wechatH5 = async () => {
 
 const wechatJSAPI = async () => {
   const r = await mbdPay.wechatJSAPI({
-    openid: "1231232",
-    callback_url: "https://baidu.com",
+    openid: "xxx",
+    callback_url: "https://somewhere.com",
     description: "test", amount_total: 1
   })
   console.log(r, 'query')
