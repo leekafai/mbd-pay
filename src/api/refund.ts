@@ -8,7 +8,7 @@ interface wxPrepayParams {
   sign: string
 }
 
-interface successRes {
+export interface response {
   code?: string,
   info?: string,
   error?: string
@@ -16,7 +16,7 @@ interface successRes {
 }
 
 
-const wxJSAPI = async (arg: wxPrepayParams) => {
+const refund = async (arg: wxPrepayParams) => {
   const { order_id, app_id, sign } = arg
 
   const response = await axios
@@ -26,8 +26,8 @@ const wxJSAPI = async (arg: wxPrepayParams) => {
         order_id, app_id, sign
       }
     )
-  const data: successRes = response.data
+  const data: response = response.data
   return data
 }
 
-export default wxJSAPI
+export { refund }

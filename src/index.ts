@@ -6,6 +6,7 @@ import { aliPay } from "./api/alipay"
 import isUrl from "is-url"
 import { wxJSAPI } from "./api/wxJSAPI"
 import { query } from "./api/query"
+import { refund } from "./api/refund"
 interface mbdpayOptions {
   app_id: string,
   app_key: string
@@ -35,6 +36,10 @@ interface wechatJSAPIArgs {
 }
 interface queryArgs {
   out_trade_no: string | number
+}
+
+interface refundArgs {
+  order_id: string
 }
 class Mbdpay {
   #app_id: string = undefined
@@ -215,7 +220,27 @@ class Mbdpay {
     return query(Object.assign(data, { sign }))
   }
 
-  // TODO refund
+  async refund(args: refundArgs) {
+    const { order_id } = args
+
+    let orderId: string = (order_id || '') + ''
+
+    if (!stringFunc.notEmpty(orderId)) {
+      orderId = undefined
+    }
+
+    if (!orderId) {
+      throw new Error('order_id 不能为空')
+    }
+    const data = {
+      app_id: this.#app_id,
+      order_id: orderId
+    }
+
+    const sign = this.sign(data)
+    if (!sign) throw new Error('签名错误')
+    return refund(Object.assign(data, { sign }))
+  }
 }
 
 export = Mbdpay

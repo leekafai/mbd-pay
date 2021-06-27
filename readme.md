@@ -1,0 +1,6 @@
+- [*] wechat JSAPI
+- [*] wechat H5
+- [*] wechat openid
+- [*] alipay
+- [*] query
+- [ ] refund
