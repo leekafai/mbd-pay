@@ -1,0 +1,32 @@
+{
+  "name": "mbd-pay",
+  "version": "1.0.0",
+  "description": "mbd pay",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leekafai/mbd-pay.git"
+  },
+  "keywords": [
+    "mbd",
+    "pay"
+  ],
+  "author": "leekafai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leekafai/mbd-pay/issues"
+  },
+  "homepage": "https://github.com/leekafai/mbd-pay#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "is-url": "^1.2.4"
+  },
+  "devDependencies": {
+    "@types/is-url": "^1.2.29",
+    "@types/node": "^15.12.4",
+    "dotenv": "^10.0.0"
+  }
+}
