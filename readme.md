@@ -1,14 +1,14 @@
-- [*] wechat JSAPI
-- [*] wechat H5
-- [*] wechat openid
-- [*] alipay
-- [*] query
-- [*] refund
+- [x] wechat JSAPI
+- [x] wechat H5
+- [x] wechat openid
+- [x] alipay
+- [x] query
+- [x] refund
 
 
 install
 ```
-npm i github:leekafai/mbd-pay
+npm i @leekafai/mbd-pay
 ```
 
 usage
