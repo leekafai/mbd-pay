@@ -1,6 +1,6 @@
 {
   "name": "@leekafai/mbd-pay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mbd pay",
   "main": "dist/index.js",
   "scripts": {
