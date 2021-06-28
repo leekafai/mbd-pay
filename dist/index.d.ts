@@ -27,6 +27,9 @@ interface wechatJSAPIArgs {
 interface queryArgs {
     out_trade_no: string | number;
 }
+interface refundArgs {
+    order_id: string;
+}
 declare class Mbdpay {
     #private;
     constructor(opts: mbdpayOptions);
@@ -40,5 +43,6 @@ declare class Mbdpay {
     alipay(args: alipayArgs): Promise<import("./api/alipay").response>;
     wechatJSAPI(args: wechatJSAPIArgs): Promise<import("./api/wxJSAPI").response>;
     query(args: queryArgs): Promise<import("./api/query").response>;
+    refund(args: refundArgs): Promise<import("./api/refund").response>;
 }
 export = Mbdpay;

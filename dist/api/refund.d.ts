@@ -3,10 +3,10 @@ interface wxPrepayParams {
     app_id: string;
     sign: string;
 }
-interface successRes {
+export interface response {
     code?: string;
     info?: string;
     error?: string;
 }
-declare const wxJSAPI: (arg: wxPrepayParams) => Promise<successRes>;
-export default wxJSAPI;
+declare const refund: (arg: wxPrepayParams) => Promise<response>;
+export { refund };

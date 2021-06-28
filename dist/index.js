@@ -22,6 +22,7 @@ const alipay_1 = require("./api/alipay");
 const is_url_1 = __importDefault(require("is-url"));
 const wxJSAPI_1 = require("./api/wxJSAPI");
 const query_1 = require("./api/query");
+const refund_1 = require("./api/refund");
 class Mbdpay {
     constructor(opts) {
         _Mbdpay_app_id.set(this, undefined);
@@ -54,7 +55,6 @@ class Mbdpay {
             let dataFiltered = {};
             let hasData = 0;
             Object.keys(data).filter((key) => {
-                console.log(key, data[key]);
                 return (data[key] !== null && data[key] !== undefined);
             }).forEach((key) => {
                 dataFiltered[key] = data[key];
@@ -122,7 +122,6 @@ class Mbdpay {
             out_trade_no: outTradeNo,
             callback_url
         };
-        console.log(data, 'data');
         const sign = this.sign(data);
         if (!sign)
             throw new Error('签名错误');
@@ -178,6 +177,24 @@ class Mbdpay {
         if (!sign)
             throw new Error('签名错误');
         return query_1.query(Object.assign(data, { sign }));
+    }
+    async refund(args) {
+        const { order_id } = args;
+        let orderId = (order_id || '') + '';
+        if (!string_1.default.notEmpty(orderId)) {
+            orderId = undefined;
+        }
+        if (!orderId) {
+            throw new Error('order_id 不能为空');
+        }
+        const data = {
+            app_id: __classPrivateFieldGet(this, _Mbdpay_app_id, "f"),
+            order_id: orderId
+        };
+        const sign = this.sign(data);
+        if (!sign)
+            throw new Error('签名错误');
+        return refund_1.refund(Object.assign(data, { sign }));
     }
 }
 _Mbdpay_app_id = new WeakMap(), _Mbdpay_app_key = new WeakMap();
